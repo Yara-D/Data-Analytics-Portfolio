@@ -5,9 +5,13 @@ This project focuses on data modeling and architecture within Power BI, establis
 
 ---
 
-## 📐 Data Architecture & Model View
+## 📐 Implementation & Data Architecture
 
-### DAX Implementation for Custom Dimension
+### 1. DAX Calculated Dimension Table
+A custom date dimension was created using DAX to establish a clean continuous year hierarchy:
+
+![DAX Calculated Table](./images/dax_calculated_table.png.png)
+
 ```dax
 Year = 
 DISTINCT ( 
@@ -16,3 +20,17 @@ DISTINCT (
         "Year", YEAR([Date]) 
     ) 
 )
+
+
+2. Relational Star Schema Model
+An active Many-to-One (*:1) relationship was configured between the business establishment fact tables and the newly created Year dimension:
+
+3. Dynamic Visual Results
+Applying the custom year filter (1983) directly updates aggregate metrics across the model:
+
+🛠️ Key Technical Skills Demonstrated
+DAX Table Functions: CALENDAR, SELECTCOLUMNS, DISTINCT, TODAY.
+
+Data Modeling: Relationship cardinality management (*:1) and Star Schema optimization.
+
+Filter Context: Propagating filter context across dimension-fact tables in Power BI Desktop.
