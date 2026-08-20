@@ -24,6 +24,7 @@ DISTINCT (
 
 2. Relational Star Schema Model
 An active Many-to-One (*:1) relationship was configured between the business establishment fact tables and the newly created Year dimension:
+![Data Model](./images/data_model.png.png)
 
 3. Dynamic Visual Results
 Applying the custom year filter (1983) directly updates aggregate metrics across the model:
@@ -34,3 +35,13 @@ DAX Table Functions: CALENDAR, SELECTCOLUMNS, DISTINCT, TODAY.
 Data Modeling: Relationship cardinality management (*:1) and Star Schema optimization.
 
 Filter Context: Propagating filter context across dimension-fact tables in Power BI Desktop.
+
+
+
+
+---
+
+## 🚀 Part 2: Decade Granularity & Aggregations
+* **Calculated Columns:** Engineered a `Decade` column using DAX math functions (`MOD`) to group yearly data into 10-year intervals:
+  ```dax
+  Decade = 'Year'[Year] - MOD('Year'[Year], 10)
