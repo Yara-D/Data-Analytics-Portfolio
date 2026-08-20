@@ -41,7 +41,14 @@ Filter Context: Propagating filter context across dimension-fact tables in Power
 
 ---
 
+---
+
 ## 🚀 Part 2: Decade Granularity & Aggregations
-* **Calculated Columns:** Engineered a `Decade` column using DAX math functions (`MOD`) to group yearly data into 10-year intervals:
-  ```dax
-  Decade = 'Year'[Year] - MOD('Year'[Year], 10)
+
+### 1. Decade Calculated Column
+Engineered a `Decade` column using DAX math functions (`MOD`) to group yearly data into 10-year intervals:
+
+![DAX Decade Column](./images/dax_decade_column.png)
+
+```dax
+Decade = 'Year'[Year] - MOD('Year'[Year], 10)
